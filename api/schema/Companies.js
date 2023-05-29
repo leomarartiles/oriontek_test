@@ -19,10 +19,6 @@ const CompaniesSchema = Schema({
         required: false
     },
 
-    
-
-   
-
     status: {
         type: Number,
         required: false
@@ -32,16 +28,10 @@ const CompaniesSchema = Schema({
         type: String,
         required: false
     },
-
-    // user_firstname: {
-    //     type: String,
-    //     required: false
-    // },
-    // user_lastname: {
-    //     type: String,
-    //     required: false
-    // },
-
+    country: {
+        type: String,
+        required: false
+    },
     date_created: {
 		type: Date,
 		default: moment().toISOString()

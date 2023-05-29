@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8" />
+  <title><%- title %> | wTracking BackOffice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="BackOffice wTracking" name="description" />
+  <meta content="AGL, LTD" name="author" />
+  <!-- App favicon -->
+  <link rel="shortcut icon" href="public/assets/images/favicon.ico?v=1.0.01">
+  <meta name="robots" content="noindex, nofollow" />
+
+  <%- HeaderCss %>
+  <%- include ('./Partials/HeaderStyle')  %>
+  <link href="public/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- Loader -->
+    <div id="preloader">
+      <div id="status">
+          <div class="spinner">
+              <i class="ri-loader-line spin-icon"></i>
+          </div>
+      </div>
+  </div>
+  <!-- Begin page -->
+  <div id="layout-wrapper">
+
+    <%- include ('./Partials/Header')  %>
+    <%- include ('./Partials/Sidebar')  %>
+
+    <div class="main-content">
+      <div class="page-content">
+        <div class="container-fluid">
+          <%- breadcrumb %>
+          <%- body %>
+        </div>
+      </div>
+      <%- include ('./Partials/Footer') %>
+    </div>
+  </div>
+ <script>
+    var URLAPI='<%= process.env.APP_URL_API %>';
+ </script>
+  <!-- <%- include ('./Partials/Rightbar')  %> -->
+  <%- include ('./Partials/VendorScript')  %>
+
+  <%- FooterJs %>
+
+  <script src="public/assets/js/app.js"></script>
+
+  <%- BottomJs %>
+
+  <script>
+    $(document).ready(function() {
+      $('.user-info-name').text( localStorage.getItem('wt_bo_user_user_fullname') );
+    })
+  </script>
+</body>
+
+</html>

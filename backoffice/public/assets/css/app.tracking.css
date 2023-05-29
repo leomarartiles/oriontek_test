@@ -1,0 +1,205 @@
+.gmaps, .gmaps-panaroma {
+    /* height: 300px; */
+    height: 83vh;
+    background: #f8f9fa;
+    border-radius: 3px; }
+  
+  .gmaps-overlay {
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+    background: #E4615A;
+    border-radius: 4px;
+    padding: 10px 20px; }
+  
+  .gmaps-overlay_arrow {
+    right: 50%;
+    margin-right: -16px;
+    width: 0;
+    height: 0;
+    position: absolute; }
+    .gmaps-overlay_arrow.above {
+      bottom: -15px;
+      border-right: 16px solid transparent;
+      border-left: 16px solid transparent;
+      border-top: 16px solid #E4615A; }
+    .gmaps-overlay_arrow.below {
+      top: -15px;
+      border-right: 16px solid transparent;
+      border-left: 16px solid transparent;
+      border-bottom: 16px solid #E4615A; }
+
+
+      /* $marker-height: 23px; */
+
+      .gmap-marker-label {
+          color: #000 !important;
+          font-size: 13px !important;
+          padding-top: 3px;
+          padding-right: 3px;
+          margin: 0 !important;
+          top: -30px;
+          position: relative;
+          height:  23px;
+          width: 100%;
+          border-width: 1px;
+          border-style: solid;
+          border-color: #6C757E;
+          border-radius: 4px;
+          font-weight: 200 !important;
+          background-color: #fff;
+      }
+      
+      .gmap-marker-label:before {
+          font-family: "Font Awesome 5 Free";
+          content: "";
+          display: inline-block;
+          padding-right: 5px;
+          /* // vertical-align: middle; */
+          font-weight: 900;
+          /* // margin-top: -3px; */
+          font-size: 12px;
+      }
+/*       
+      // .gmap-marker-label:after {
+      //     border-right: solid 20px transparent;
+      //     border-left: solid 20px transparent;
+      //     border-top: solid 20px #FF9A02;
+      //     transform: translateX(14%);
+      //     position:relative;
+      //     z-index: -1;
+      //     // content: '';
+      //     // top: 60%;
+      //     left: 50%;
+      //     height: 0;
+      //     width: 0;
+      // }
+      
+      
+     */
+      
+    
+      .gmap-marker-label.marker-type-5:before{
+          content: "\f1b9";
+      }
+      
+      /* // Bus÷ */
+      .gmap-marker-label.marker-type-14:before {
+          content: "\f207";
+      }
+   
+      
+      /* // Flechas de dirección */
+      
+   
+      .gmap-marker-label.marker-dir-0::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2191";
+          display: inline-block;
+      }
+      
+   
+      .gmap-marker-label.marker-dir-1::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2197";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-2::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2192";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-3::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2198";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-4::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2190";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-5::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2191";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-6::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2199";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-7::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2193";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-dir-7::after {
+          padding-left: 5px;
+          font-weight: 800;
+          content: "\2196";
+          display: inline-block;
+      }
+      
+      .gmap-marker-label.marker-stat {
+          background-color: #fff;
+      }
+      .gmap-marker-label.marker-stat-0 {
+          background-color: #00A6FF;
+      }
+      
+      .gmap-marker-label.marker-stat-1 {
+          background-color: #1F1A1A;
+      }
+      
+      
+      .gmap-marker-label.marker-stat-2 {
+          background-color: #b6b2aa;
+      }
+      
+      
+      .gmap-marker-label.marker-stat-3 {
+          background-color: #BA1212;
+      }
+      
+      .gmap-marker-label.marker-stat-4 {
+          background-color: #109B84;
+      }
+      .header-tracking-content{
+        padding: 5px 0px 15px 0;
+      }
+      .logo-tracking-unit{
+        height: 45px;
+
+      }
+      .header-tracking-unit-info{
+
+      }
+      .tracking-top-text{
+        font-size: 17px;
+        font-weight: 200;
+        margin-bottom: 0;
+      }
+      .tracking-bottom-text{
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #ac4e4e;
+        font-weight: bolder;
+      }

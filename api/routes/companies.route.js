@@ -4,11 +4,11 @@ const controller =   require('../controller/companies.controller');
 // const auth = require('../middleware/auth');
 
 // Retrieve a single item with id
-//  router.post('/auth', controller.findByEmail);
-// router.get('/attr', controller.getAppFieldData);
 router.get('/info/:id', controller.getCompany);
+router.post('/create', controller.createCompany);
+router.post('/update/:id', controller.updateCompany);
 
-// router.post('/users/auth', controller.findByEmail); 
+router.post('/list/dt', controller.dtDTablesByCompany);
 
 
 module.exports = router;

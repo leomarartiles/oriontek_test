@@ -1,0 +1,145 @@
+<%- contentFor('HeaderCss') %>
+
+<!-- DataTables -->
+<link href="public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" /> 
+
+<%- contentFor('breadcrumb') %>
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Empresas</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">BackOffice</a></li>
+                    <li class="breadcrumb-item active">Empresas</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <a href="javascript:void(0);" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalCreateCompany"><i class="mdi mdi-plus me-2"></i> Agregar Empresa</a>
+                </div>
+                <div class="modal fade" id="modalCreateCompany" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalCreateCompanyLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalCreateCompanyLabel">Registrar Empresa</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form id="form-add-company" class="form-app-inputs needs-validation">    
+                                <div class="modal-body">
+                                    <div id="modal-add-company">
+                                        <div class="row">
+                                            <ul class="form-submenu-left form-sb-left-cia-add">
+                                                <li class="active" ref-form="companies-general" ref-parent="form-sb-left-cia-add" ref-content="form-content-cia-add">General</li>
+                                            </ul>
+                                            <div class="form-submenu-container">
+                                                <div id="companies-general" class="form-submenu-content form-content-cia-add active">
+                                                    <p>general</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-outline-danger waves-effect waves-light">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalEditCompany" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalEditCompanyLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalEditCompanyLabel">Editar Empresa</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form id="form-edit-company" class="form-app-inputs needs-validation">    
+                                <div class="modal-body">
+                                    <div id="modal-add-company">
+                                        <div class="row">
+                                            <ul class="form-submenu-left form-sb-left-cia-edit">
+                                                <li class="active" ref-form="edit-companies-general" ref-parent="form-sb-left-cia-edit" ref-content="form-content-cia-edit">General</li>
+                                                <!-- <li ref-form="edit-companies-contact" ref-parent="form-sb-left-cia-edit" ref-content="form-content-cia-edit">Contacto</li>
+                                                <li ref-form="edit-companies-modules" ref-parent="form-sb-left-cia-edit" ref-content="form-content-cia-edit">Modulos / Otros</li> -->
+                                            </ul>
+                                            <div class="form-submenu-container">
+                                                <div id="edit-companies-general" class="form-submenu-content form-content-cia-edit active">
+                                                    <p>general</p>
+                                                </div>
+                                                <div id="edit-companies-contact" class="form-submenu-content form-content-cia-edit">
+                                                    <p>informacon</p>
+                                                </div>
+                                                <div id="edit-companies-modules" class="form-submenu-content form-content-cia-edit">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-outline-danger waves-effect waves-light">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <div id="div-test"></div>
+                    <table id="dtCompanies" class="table table-centered activate-select  w-100 datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <thead class="thead-light">
+                            <tr>
+                                
+                                <th>ID</th>
+                                <th>Empresa</th>
+                                <th>Descripcion</th>
+                                <th>Estado</th>
+                                <th>F. Reg.</th>
+                               
+                                <!-- <th>Wallet Balance</th>
+                                <th>Joining Date</th> -->
+                                <th>OP</th>
+                            </tr>
+                        </thead>
+                        <!--  -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+
+<%- contentFor('FooterJs') %>
+
+ <!-- Required datatable js -->
+ <script src="public/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+ <script src="public/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+ 
+ <!-- Responsive examples -->
+ <script src="public/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+ <script src="public/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+ <!-- <script src="public/assets/libs/bs-custom-file-input/bs-custom-file-input.min.js"></script> -->
+ 
+ <!-- <script src="public/assets/js/pages/app.helper.js"></script> -->
+ <script src="public/assets/js/pages/adm-companies.init.js"></script>
+
+<%- contentFor('BottomJs') %>

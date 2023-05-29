@@ -1,0 +1,155 @@
+<%- contentFor('HeaderCss') %>
+
+<!-- DataTables -->
+<link href="public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" /> 
+
+<%- contentFor('breadcrumb') %>
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Usuarios</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">BackOffice</a></li>
+                    <li class="breadcrumb-item active">Usuarios</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <a href="javascript:void(0);" class="btn btn-primary mb-2 open-form-new-modal" ><i class="mdi mdi-plus me-2"></i> Agregar Usuario</a>
+                </div>
+                <div class="modal fade" id="modalCreateUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalCreateUserLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl modal-streched" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalCreateUserLabel">Registrar Usuario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form id="form-add-user" class="form-app-inputs needs-validation">    
+                                <div class="modal-body">
+                                    <div id="modal-add-user">
+                                        <div class="row">
+                                            <ul class="form-submenu-left form-sb-left-users-add">
+                                                <li class="active" ref-form="users-general" ref-parent="form-sb-left-users-add" ref-content="form-content-users-add">General</li>
+                                                <!-- <li ref-form="users-contact" ref-parent="form-sb-left-users-add" ref-content="form-content-users-add">Contacto</li>
+                                                <li ref-form="users-modules" ref-parent="form-sb-left-users-add" ref-content="form-content-users-add">Modulos / Otros</li> -->
+                                            </ul>
+                                            <div class="form-submenu-container">
+                                                <div id="users-general" class="form-submenu-content form-content-users-add active">
+                                                    <p>general</p>
+                                                </div>
+                                                <!-- <div id="companies-contact" class="form-submenu-content form-content-cia-add">
+                                                    <p>informacon</p>
+                                                </div>
+                                                <div id="companies-modules" class="form-submenu-content form-content-cia-add">
+                                                    
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-outline-danger waves-effect waves-light">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalEditUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalEditUserLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl modal-streched" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalEditUserLabel">Editar Usuario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form id="form-edit-user" class="form-app-inputs needs-validation">    
+                                <div class="modal-body">
+                                    <div id="modal-edit-user">
+                                        <div class="row">
+                                            <ul class="form-submenu-left form-sb-left-users-edit">
+                                                <li class="active" ref-form="edit-users-general" ref-parent="form-sb-left-users-edit" ref-content="form-content-users-edit">General</li>
+                                                <!-- <li ref-form="users-contact" ref-parent="form-sb-left-users-add" ref-content="form-content-users-add">Contacto</li>
+                                                <li ref-form="users-modules" ref-parent="form-sb-left-users-add" ref-content="form-content-users-add">Modulos / Otros</li> -->
+                                            </ul>
+                                            <div class="form-submenu-container">
+                                                <div id="edit-users-general" class="form-submenu-content form-content-users-edit active">
+                                                    <p>general</p>
+                                                </div>
+                                                <!-- <div id="companies-contact" class="form-submenu-content form-content-cia-add">
+                                                    <p>informacon</p>
+                                                </div>
+                                                <div id="companies-modules" class="form-submenu-content form-content-cia-add">
+                                                    
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-outline-danger waves-effect waves-light">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table id="dtUsers" class="table table-centered activate-select  w-100 datatable dt-responsiwwwve nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <thead class="thead-light">
+                            <tr>
+                                <th style="width: 20px;">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="customercheck">
+                                        <label class="form-check-label mb-0" for="customercheck">&nbsp;</label>
+                                    </div>
+                                </th>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Empresa</th>
+                                <!-- <th>Grupo Asig.</th> -->
+                                <th>Perfil</th>
+                                <th>Estado</th>
+                                <th>Fecha Reg.</th>
+                                <th style="width: 120px;">Opciones</th>
+                            </tr>
+                        </thead>
+                        <!--  -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- contentFor('FooterJs') %>
+
+ <!-- Required datatable js -->
+ <script src="public/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+ <script src="public/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+ 
+ <!-- Responsive examples -->
+ <script src="public/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+ <script src="public/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+ 
+ <!-- <script src="public/assets/js/pages/app.helper.js"></script> -->
+ <script src="public/assets/js/pages/adm-users.init.js"></script>
+
+<%- contentFor('BottomJs') %>

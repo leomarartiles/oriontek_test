@@ -10,21 +10,11 @@ const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 const moment = require('moment');
 
 const UsersSchema = Schema({
-    // id_seq:{
-    //     type: Number,
-    //     default:100
-    // },
-    company: {
-        type: String,
-        required: false
-    },
-
-    type: {
-        type: String,
-        required: false
-    },
-
     id_reg: {
+        type: String,
+        required: false
+    },
+    profile: {
         type: String,
         required: false
     },
@@ -33,12 +23,19 @@ const UsersSchema = Schema({
         type: String,
         required: false
     },
-
+    user_email: {
+        type: String,
+        required: false
+    },
     user_login: {
         type: String,
         required: false
     },
 
+    user_password: {
+        type: String,
+        required: false
+    },
     user_firstname: {
         type: String,
         required: false
@@ -63,4 +60,4 @@ const UsersSchema = Schema({
 
 UsersSchema.plugin(mongoosePaginate);
 UsersSchema.plugin(aggregatePaginate);
-module.exports = model('app_user', UsersSchema);
+module.exports = model('app_users', UsersSchema,'app_users');

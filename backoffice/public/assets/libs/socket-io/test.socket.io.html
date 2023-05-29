@@ -1,0 +1,123 @@
+<!-- test-io-client.html -->
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+
+    function init()
+    {
+        output = document.getElementById("output");
+        // testSocket();
+    }
+
+    // function testSocket()
+    // {
+        var domain ='localhost'; //api.aglrd.com
+        var domain ='api.aglrd.com'; //api.aglrd.com
+        // var domain ='stanging.aglrd.com'; //api.aglrd.com
+        // var socket = io.connect('http://'+domain+':7055/');
+        // var socket = io.connect('http://'+domain+':7055/');
+        var socket = io.connect('https://'+domain+':4492/');
+
+        
+        // socket.on('test', onMessage );
+        socket.on('vehicles_locations', onUpdateLocation );
+        socket.on('vehicle_all', getVicle );
+        socket.on('message_test', msgTest );
+        socket.on('connect', onConnect );
+        socket.on('disconnect', onDisconnect );
+        // socket.on('connect_error', onError );
+        
+
+        let group_companies = ['7WC8JU9DQH','MDJAY37EPS'];
+
+        // socket.emit('join_company',group_companies);
+        
+        //socket.emit('join_company','MDJAY37EPS');
+        socket.emit('join_company','7WC8JU9DQH');
+        //socket.emit('join_company','MDJAY37EPS');
+        
+        function disconnectCompany(){
+            socket.emit('disconnect_company', 'MDJAY37EPS');
+        }
+
+        function disconnectCompany2(company_id,join_company){
+            socket.emit('disconnect_company', company_id);
+            socket.emit('join_company',join_company);
+        }
+        // socket.on('reconnect_error', onError );
+        // let group_companies = ['7WC8JU9DQH','MDJAY37EPS'];
+        // group_companies.forEach(this_company => {
+        //     socket.emit('join_company',this_company);
+        // });
+        function get_today(){
+            let setToday = new Date();
+            return '<strong>[ '+setToday.toString()+' ] ::.. </strong>';
+        }
+        function getVicle(data){
+            console.log("get_vehicle",data);
+            // writeToScreen('<span style="color: blue;">UPDATE LOCATION: ' + data.id_unique+' | Car ID: '+data.id_vehicle+'</span>');
+            // writeToScreen(get_today()+'<span style="color: green;">get_vehicle[ id:'+data[0].id+'  ---  ficha_:'+data[0].ficha+' ---- latitud:'+data[0].latitud+' --- longitud:'+data[0].longitud+'</span>');
+            // socket.close();
+        }
+        function msgTest(data){
+            console.log("message_test",data);
+            // writeToScreen('<span style="color: blue;">UPDATE LOCATION: ' + data.id_unique+' | Car ID: '+data.id_vehicle+'</span>');
+            writeToScreen(get_today()+'<span style="color: blue;">message_test[ id:'+data+'</span>');
+            // socket.close();
+        }
+
+        function onUpdateLocation(data)
+        {
+            console.log(data.id_company);
+            // writeToScreen('<span style="color: blue;">UPDATE LOCATION: ' + data.id_unique+' | Car ID: '+data.id_vehicle+'</span>');
+            writeToScreen(get_today()+'<span style="color: blue;">UPDATE Trigger Received[ id:'+data.id+'  ---  id_coche:'+data.id_coche+' ---- latitud:'+data.latitud+' --- longitud:'+data.longitud+'</span>');
+            //  socket.close();
+            //  socket.emit('disconnect','MDJAY37EPS');
+        }
+
+        function onConnect(evt)
+        {
+            writeToScreen(get_today()+"CONNECTED");
+            doSend("Allo?");
+        }
+
+        function onDisconnect(evt)
+        {
+            writeToScreen(get_today()+'<span style="color: red;">DISCONNECTED</span>');
+        }
+
+        function onMessage(data)
+        {
+            writeToScreen(get_today()+'<span style="color: blue;">RESPONSE: ' + data+'</span>');
+            //socket.close();
+        }
+
+        function onError(message)
+        {
+            writeToScreen(get_today()+'<span style="color: red;">ERROR:</span> ' + message);
+        }
+
+        function doSend(message)
+        {
+            writeToScreen(get_today()+"SENT: " + message);
+            socket.emit('test', message);
+        }
+
+        function writeToScreen(message)
+        {
+            var pre = document.createElement("p");
+            pre.style.wordWrap = "break-word";
+            pre.innerHTML = message;
+            output.appendChild(pre);
+        }
+        // document.getElementById('this-buttons').innerHTML='<button type="button" onclick="disconnectCompany();"> Desconnectar</button>';
+    // }
+
+    window.addEventListener("load", init, false);
+</script>
+
+<h2>Socket.io Test</h2>
+<div id="this-buttons">
+    <button type="button" onclick="disconnectCompany();"> Desconnectar</button>
+    <button type="button" onclick="disconnectCompany2('7WC8JU9DQH','MDJAY37EPS');"> Desconnectar 2</button>
+</div>
+<div id="output"></div>
