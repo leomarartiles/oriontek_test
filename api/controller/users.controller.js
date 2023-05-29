@@ -9,10 +9,6 @@ const moment=require("moment");
 
 
 const CreateUserModel = function(user){
-    // this.id = user.id;
-    // this.id_reg = user.id_reg;
-    // this.company = user.empresa;
-
     this.id_reg = AppUtils.genRandCode(8);
     this.profile =user.profile;
     this.status = 1;
@@ -44,23 +40,10 @@ exports.createUserLogin = async (req, res) => {
         
     });
 }
-// 	const userModel = new CreateUserModel(req.body);
-
-//     let UserLogin = new Users(userModel); 
-	
-// 	await UserLogin.save()
-// 	.then((uiResponse) => {
-// 		res.status(200).json({ status:'ok',data:UserLogin,message:'success'});
-//     })
-//     .catch(async (error) => {
-//         res.status(200).json({ status:'error',data:UserLogin,message:error});
-//     });
-// };
-
 exports.userLogin = async (req, res) => {
 	const query = {user_login:req.body.user_email};
 
-    // let UserLogin = new Users(userModel); 
+    
 	let resStat = {status:'error',data:null};
 	await Users.findOne(query)
 	.then((uiResponse) => {

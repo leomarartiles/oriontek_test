@@ -1,8 +1,5 @@
 /*
-Template Name: Nazox -  Admin & Dashboard Template
-Author: Themesdesign
-Contact: themesdesign.in@gmail.com
-File: Datatables Js File
+
 */
 
 $(document).ready(function() {
@@ -49,7 +46,7 @@ $(document).ready(function() {
           var page = info.page;
           var length = info.length;
           var index = (page * length + (iDisplayIndex + 1));
-          // $('td:eq(0)', row).html(index);
+          $('td:eq(3)', row).html(FormAppHelper.getStatus(data.status));
           $('td:eq(5)', row).html(` <a href="javascript:void(0);" class="me-3 text-primary btn-open-record" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" data-id="${data.id_reg}"><i class="mdi mdi-pencil font-size-18"></i></a>
         <a href="javascript:void(0);" class="text-danger" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>`);
         }

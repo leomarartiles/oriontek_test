@@ -11,12 +11,12 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Empresas</h4>
+            <h4 class="mb-sm-0">Direcciones</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">BackOffice</a></li>
-                    <li class="breadcrumb-item active">Empresas</li>
+                    <li class="breadcrumb-item active">Direcciones</li>
                 </ol>
             </div>
 
@@ -30,15 +30,19 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <div>
-                    <a href="javascript:void(0);" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalCreateCompany"><i class="mdi mdi-plus me-2"></i> Agregar Empresa</a>
-                    
+                <div class="row">
+                    <div class="col-6">
+                    <a href="javascript:void(0);" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalCreateCompany"><i class="mdi mdi-plus me-2"></i> Agregar Direccion</a>
+                    </div>
+                    <div class="col-6">
+                        <select class="form-control" id="filter_client" name="filter_client"></select>
+                    </div>
                 </div>
                 <div class="modal fade" id="modalCreateCompany" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalCreateCompanyLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalCreateCompanyLabel">Registrar Empresa</h5>
+                                <h5 class="modal-title" id="modalCreateCompanyLabel">Registrar Direccion</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form id="form-add-company" class="form-app-inputs needs-validation">    
@@ -47,11 +51,19 @@
                                         <div class="row">
                                             <ul class="form-submenu-left form-sb-left-cia-add">
                                                 <li class="active" ref-form="companies-general" ref-parent="form-sb-left-cia-add" ref-content="form-content-cia-add">General</li>
+                                                <!-- <li ref-form="companies-contact" ref-parent="form-sb-left-cia-add" ref-content="form-content-cia-add">Contacto</li>
+                                                <li ref-form="companies-modules" ref-parent="form-sb-left-cia-add" ref-content="form-content-cia-add">Modulos / Otros</li> -->
                                             </ul>
                                             <div class="form-submenu-container">
                                                 <div id="companies-general" class="form-submenu-content form-content-cia-add active">
                                                     <p>general</p>
                                                 </div>
+                                                <!-- <div id="companies-contact" class="form-submenu-content form-content-cia-add">
+                                                    <p>informacon</p>
+                                                </div>
+                                                <div id="companies-modules" class="form-submenu-content form-content-cia-add">
+                                                    
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +80,7 @@
                     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalEditCompanyLabel">Editar Empresa</h5>
+                                <h5 class="modal-title" id="modalEditCompanyLabel">Editar Direccion</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form id="form-edit-company" class="form-app-inputs needs-validation">    
@@ -84,12 +96,12 @@
                                                 <div id="edit-companies-general" class="form-submenu-content form-content-cia-edit active">
                                                     <p>general</p>
                                                 </div>
-                                                <div id="edit-companies-contact" class="form-submenu-content form-content-cia-edit">
+                                                <!-- <div id="edit-companies-contact" class="form-submenu-content form-content-cia-edit">
                                                     <p>informacon</p>
                                                 </div>
                                                 <div id="edit-companies-modules" class="form-submenu-content form-content-cia-edit">
                                                     
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -104,13 +116,15 @@
                 </div>
                 <div class="table-responsive mt-3">
                     <div id="div-test"></div>
-                    <table id="dtCompanies" class="table table-centered activate-select  w-100 datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="dtAddress" class="table table-centered activate-select  w-100 datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead class="thead-light">
                             <tr>
                                 
                                 <th>ID</th>
-                                <th>Empresa</th>
-                                <th>Descripcion</th>
+                                <th>Cliente</th>
+                                <th>Direccion</th>
+                                <th>Cuidad</th>
+                                <th>Pais</th>
                                 <th>Estado</th>
                                 <th>F. Reg.</th>
                                
@@ -141,6 +155,6 @@
  <!-- <script src="public/assets/libs/bs-custom-file-input/bs-custom-file-input.min.js"></script> -->
  
  <!-- <script src="public/assets/js/pages/app.helper.js"></script> -->
- <script src="public/assets/js/pages/adm-companies.init.js"></script>
+ <script src="public/assets/js/pages/adm-address.init.js"></script>
 
 <%- contentFor('BottomJs') %>

@@ -12,7 +12,7 @@
 }
 .form-submenu-left li.active,.form-submenu-left li:hover{
     background: #e3e3e3;
-    border-right: 3px solid #ca4b4b;
+    border-right: 3px solid #00ADEE;
 }   
 .form-submenu-container{
     border-left: 1px solid #c4c4c4;
@@ -31,7 +31,7 @@
     background: linear-gradient(9deg, rgba(236,101,20,1) 16%, rgba(231,51,9,1) 70%) !important;
 }
 .authentication-bg .bg-overlay{
-    background-color: #e86a6a;
+    background-color: #00ADEE;
 }
 .header-user-profile{
     display: inline-block;
@@ -44,14 +44,14 @@
     font-size: 22px;
 }
 .page-item.active .page-link{
-    background-color: #ff3d60;
-    border-color: #ff3d60;
+    background-color: #00ADEE;
+    border-color: #00ADEE;
 }
 .form-section-title{
     margin-bottom: 15px;
 }
 .form-section-title::before{
-    border-bottom: 1px solid #ff3d60;
+    border-bottom: 1px solid #00ADEE;
     content: "";
     position: absolute;
     width: 75%;
@@ -68,7 +68,7 @@
     position: relative;
     width: 10%;
     margin: auto;
-    color: #d74343;
+    color: #00ADEE;
 }
 
 .input-radio-group{ margin-right: 15px;}

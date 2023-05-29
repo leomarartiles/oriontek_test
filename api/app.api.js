@@ -38,6 +38,7 @@ app.use(bodyParser.json());
 const usersRoutes = require('./routes/users.route')
 const companiesRoutes = require('./routes/companies.route');
 const clientsRoutes = require('./routes/clients.route');
+const clientsAddressRoutes = require('./routes/client_address.route');
 
 
 //**  MongoDB connection
@@ -52,6 +53,7 @@ app.group("/api", (router) => {
   router.use('/users', usersRoutes);
   router.use('/companies', auth.ensureAuthenticated, companiesRoutes);
   router.use('/clients', auth.ensureAuthenticated, clientsRoutes);
+  router.use('/address', auth.ensureAuthenticated, clientsAddressRoutes);
 
 });
 

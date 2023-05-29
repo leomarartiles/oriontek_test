@@ -23,18 +23,7 @@ var apiToken,apiTokenSecret;
   });
 }
 
-// let submitNewGroup = function (form_data){
-//   return new Promise(function(resolve, reject){
-//     //JSON.parse(form_data)
-//     axios.post(process.env.APP_URL_API+'/groups/create/', form_data,apiToken)
-//     .then(function (response) {
-//       resolve(response);
-//     })
-//     .catch(function (error) {
-//       console.log('error', error);
-//     });
-//   });
-// }
+
 let getAppFieldData = function (){
   return new Promise(function(resolve, reject){
     axios.get(process.env.APP_URL_API+'/companies/listing',apiToken)
@@ -337,6 +326,58 @@ class ClientServices {
  
 }
 
+class AddressServices {
+  constructor(a,b,c) {}
+
+  static createNewRS = function (form_data){
+    return new Promise(function(resolve, reject){
+      axios.post(process.env.APP_URL_API+'/address/create', form_data,apiToken)
+      .then(function (response) {
+        resolve(response);
+      })
+      .catch(function (error) {
+        console.log('error', error);
+      });
+    });
+  }
+  static getRecordID = function (recordIDs){
+    return new Promise(function(resolve, reject){
+      axios.get(process.env.APP_URL_API+'/address/info/'+recordIDs,apiToken)
+      .then(function (response) {
+        resolve(response);
+      })
+      .catch(function (error) {
+        console.log('error', error);
+      });
+    });
+  }
+  
+  static updateRecordId = function (recordIDs,form_data){
+    return new Promise(function(resolve, reject){
+      axios.post(process.env.APP_URL_API+'/address/update/'+recordIDs, form_data,apiToken)
+      .then(function (response) {
+        resolve(response);
+      })
+      .catch(function (error) {
+        console.log('error', error);
+      });
+    });
+  }
+  
+  static getListingDT= function (req){
+    return new Promise(function(resolve, reject){
+      axios.post(process.env.APP_URL_API+'/address/list/dt',req.body,apiToken)
+      .then(function (response) {
+        resolve(response);
+      })
+      .catch(function (error) {
+        // console.log('error', error);
+      });
+    });
+  }
+ 
+}
+
 module.exports = function (app) {
   // Inner Auth
   app.get("/pages-login", function (req, res) {
@@ -351,28 +392,7 @@ module.exports = function (app) {
     });
   });
   
-  // app.get('/t', function (req, res) {
-    
-  //   res.locals.query = req.query;
-  //   if( req.query.t !=''){
-      
-  //     TrackingServices.getRecord(req.query.t).then(function(response){
-  //         if (response.data.status =='ok') {
-  //           if(response.data.data.length > 0){
-  //             res.locals.app_form_data=response.data.data[0];
-  //             // console.log('res',res.locals.app_form_data);
-  //             res.render('Tracking/map-tracking');
-  //           }else{
-  //             res.redirect('/pages-expired');
-  //             // res.render('Tracking/map-tracking');
-  //           }
-  //         } else {
-  //           req.flash("error", "Error connection with server!");
-  //           res.send({status:'error',message:response.data.status});
-  //         }
-  //     });
-  //   }
-  // });
+  
 
   app.post("/auth-login", urlencodeParser, function (req, res) {
     submitLogin(req.body.user_email,req.body.user_password).then(function(response){
@@ -528,6 +548,52 @@ module.exports = function (app) {
   
   app.post("/customers/create",urlencodeParser, function (req, res) {
     ClientServices.createNewRS(req.body).then(function(response){
+        if (response.data.status =='ok') {
+          res.send({status:'ok',data:response.data.data});
+        } else if(response.data.status =='found') {
+          res.send({status:'found',message:'Identificador ya existe!'});
+        } else {
+          req.flash("error", "Error connection with server!");
+          res.send({status:'error',message:response.data.status});
+        }
+    });
+  });
+
+  app.post("/address/list",urlencodeParser, function (req, res) {
+    AddressServices.getListingDT(req).then(function(response){
+        if (response.data.status =='ok') {
+          res.send(response.data);
+        } else {
+          req.flash("error", "Error connection with server!");
+          res.send({status:'error',message:response.data.status});
+        }
+    });
+  });
+  
+  app.post("/address",urlencodeParser, function (req, res) {
+    AddressServices.getRecordID(req.body.record_id).then(function(response){
+        if (response.data.status =='ok') {
+          res.send({status:'ok',data:response.data.data});
+        } else {
+          req.flash("error", "Error connection with server!");
+          res.send({status:'error',message:response.data.status});
+        }
+    });
+  });
+  
+  app.post("/address/update",urlencodeParser, function (req, res) {
+    AddressServices.updateRecordId(req.body.id_reg,req.body).then(function(response){
+        if (response.data.status =='ok') {
+          res.send({status:'ok',data:response.data.data});
+        } else {
+          req.flash("error", "Error connection with server!");
+          res.send({status:'error',message:response.data.status});
+        }
+    });
+  });
+  
+  app.post("/address/create",urlencodeParser, function (req, res) {
+    AddressServices.createNewRS(req.body).then(function(response){
         if (response.data.status =='ok') {
           res.send({status:'ok',data:response.data.data});
         } else if(response.data.status =='found') {

@@ -1,6 +1,6 @@
 /*
-Author: AGL, LTD | Leomar
-Contact: leomar.artiles@aglrd.com
+Author: OrionTek | Leomar
+Contact: leomarartiles@gmail.com
 File: Password Addon Js File
 */
 // alertify.set('notifier','position', 'top-left');
@@ -44,6 +44,7 @@ $(".btn-submit-login").on('click',function(){
 	
 	  $.ajax(settings).done(function (response) {
 		if (response) {
+			
 			switch (response.status) {
 			  	case "wrong-password":
 					// alertify.error('Error: Contraseńa incorrecta.');
@@ -59,7 +60,7 @@ $(".btn-submit-login").on('click',function(){
 						break;
 		 		case "ok":
 					localStorage.setItem('wt_bo_user_email', response.data.user_email);
-					localStorage.setItem('wt_bo_user_user_fullname', response.data.user_firstname);
+					localStorage.setItem('wt_bo_user_user_fullname', response.data.user_fullname);
 					// localStorage.setItem('wt_bo_user_user_companies', response.data.user_companies);
 					localStorage.setItem('wt_bo_user_user_token', response.data.user_token);
 					window.location.href = "/";

@@ -17,7 +17,7 @@ const CreateClientModel = function(rsRows) {
 };
 
 const UpdateClientModel = function(rsRows) {
-    // this.id_reg = AppUtils.genRandCode(8);
+
     this.id_company = rsRows.id_company;
     this.client_name =rsRows.client_name;
     this.status =rsRows.status;
@@ -41,7 +41,6 @@ exports.createClient = async (req, res) => {
 
 exports.getClient = async (req, res) => {
 	const query = {id_reg:req.params.id};
-	// const query = {id_reg:req.body.id_reg};
 	
     //* Find Client
     const client = await Clients.findOne(query);
@@ -65,45 +64,18 @@ exports.dtDTablesByClients = async function(req, res) {
 	const optPage = req.body.start;
 	const optLimit = req.body.length;
 	
-	// const filter = req.body.opt_filter;
-	// const filterFields = req.body.opt_filter_fields;
-	// if (!company_id) {
-	// 	return res.status(400).send('The required field ficha_id is missing')
-	// }
-	
-
 	let sortBy = req.body.opt_sortby;
 	let sortOrder = '';//req.body.order[0][dir];
 	
-	// if( sortOrder ==true){ sortOrder=1;}
-	// if( sortOrder ==false){ sortOrder=-1;}
-	// if( sortBy == ''){ sortBy='_id';}
-
 	sortBy='_id'; sortOrder=-1;
 
 	let OrderBy=JSON.parse(`{"${sortBy}": ${sortOrder}}`);
 	let objetFilter ={}; //{company:company_id};
-	// let objetFilter ={company:company_id,status:{$ne:2}};
-	
-	
-	// if(filterText !== null){
-	// 	if(filterText.length > 0){
-	// 		if(isNumber(filterText)){
-	// 			objetFilter.no_pedido={'$regex': filterText.toUpperCase()};
-	// 		}else{
-	// 			objetFilter.address_name={'$regex': filterText.toUpperCase()};
-	// 		}
-	// 		// if( optFilterField !=''){
-	// 		// 	objetFilter[optFilterField]={'$regex': filterText.toUpperCase()};
-	// 		// }
-	// 	}
-	// }
 	
 	const options = {
 		page: optPage,
 		limit: optLimit,
 		sort:OrderBy
-		// customLabels: myCustomLabels,
 	};
 	
 	Clients.paginate(objetFilter, options, function (err, result) {

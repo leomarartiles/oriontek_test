@@ -18,7 +18,7 @@ var options = {
             show: false
         }
     },
-    colors: ['#e4615a', '#1cbb8c'],
+    colors: ['#00ADEE', '#1cbb8c'],
     dataLabels: {
         enabled: false,
     },
@@ -106,7 +106,7 @@ var options = {
             show: false,
         }
     },
-    colors: ['#e4615a', '#fcb92c', '#1cbb8c'],
+    colors: ['#00ADEE', '#fcb92c', '#1cbb8c'],
     dataLabels: {
         enabled: false
     },
@@ -204,7 +204,7 @@ var options = {
         name: 'series2',
         data: [32, 60, 34, 46, 34, 52, 41]
     }],
-    colors: ['#e4615a', '#1cbb8c'],
+    colors: ['#00ADEE', '#1cbb8c'],
     xaxis: {
         type: 'datetime',
         categories: ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"],
@@ -267,7 +267,7 @@ var options = {
         name: 'Free Cash Flow',
         data: [37, 42, 38, 26, 47, 50, 54, 55, 43]
     }],
-    colors: ['#e4615a', '#1cbb8c', '#fcb92c'],
+    colors: ['#00ADEE', '#1cbb8c', '#fcb92c'],
     xaxis: {
         categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     },
@@ -338,7 +338,7 @@ var options = {
         name: 'Inflation',
         data: [2.5, 3.2, 5.0, 10.1, 4.2, 3.8, 3, 2.4, 4.0, 1.2, 3.5, 0.8]
     }],
-    colors: ['#e4615a'],
+    colors: ['#00ADEE'],
     grid: {
         borderColor: '#f1f1f1',
         padding: {
@@ -490,7 +490,7 @@ var options = {
             columnWidth: '50%'
         }
     },
-    colors: ['#1cbb8c', '#fcb92c', '#e4615a'],
+    colors: ['#1cbb8c', '#fcb92c', '#00ADEE'],
     series: [{
         name: 'Team A',
         type: 'column',
@@ -588,7 +588,7 @@ var options = {
     },
     series: [44, 55, 67, 83],
     labels: ['Computer', 'Tablet', 'Laptop', 'Mobile'],
-    colors: ['#e4615a', '#fcb92c', '#1cbb8c', '#ff3d60'],
+    colors: ['#00ADEE', '#fcb92c', '#1cbb8c', '#ff3d60'],
     legend: {
         offsetY: 5
     }
@@ -612,7 +612,7 @@ var options = {
     },
     series: [44, 55, 41, 17, 15],
     labels: ["Series 1", "Series 2", "Series 3", "Series 4", "Series 5"],
-    colors: ["#1cbb8c", "#e4615a", "#fcb92c", "#4aa3ff", "#ff3d60"],
+    colors: ["#1cbb8c", "#00ADEE", "#fcb92c", "#4aa3ff", "#ff3d60"],
     legend: {
         show: true,
         position: 'bottom',
@@ -654,7 +654,7 @@ var options = {
     },
     series: [44, 55, 41, 17, 15],
     labels: ["Series 1", "Series 2", "Series 3", "Series 4", "Series 5"],
-    colors: ["#1cbb8c", "#e4615a", "#fcb92c", "#4aa3ff", "#ff3d60"],
+    colors: ["#1cbb8c", "#00ADEE", "#fcb92c", "#4aa3ff", "#ff3d60"],
     legend: {
         show: true,
         position: 'bottom',

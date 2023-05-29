@@ -14,8 +14,8 @@ module.exports = function (app) {
       }
 
       app.get('/', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Dashboard' };
-            res.render('Dashboard/index');
+            res.locals = { title: 'Empresa' };
+            res.render('Companies/adm-companies');
       });
 
       // app.get('/tracking', function (req, res) {
@@ -24,18 +24,11 @@ module.exports = function (app) {
       // });
 
       // Layouts 
-      app.get('/layouts-light-sidebar', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Light Sidebar' };
-            res.render('Dashboard/index');
-      });
-      app.get('/layouts-compact-sidebar', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Compact Sidebar' };
-            res.render('Dashboard/index');
-      });
       app.get('/companies', isUserAllowed, function (req, res) {
             res.locals = { title: 'Empresa' };
             res.render('Companies/adm-companies');
       });
+
       app.get('/clients', isUserAllowed, function (req, res) {
             res.locals = { title: 'Clientes' };
             res.render('Clients/adm-clients');
@@ -45,118 +38,13 @@ module.exports = function (app) {
             res.locals = { title: 'Usuarios' };
             res.render('Users/adm-users');
       });
+
+      app.get('/client-address', isUserAllowed, function (req, res) {
+            res.locals = { title: 'Direcciones' };
+            res.render('ClientAddress/adm-address');
+      });
       
     
-
-      //Ecommerce
-      app.get('/ecommerce-products', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Products' };
-            res.render('Ecommerce/ecommerce-products');
-      });
-
-      app.get('/ecommerce-product-detail', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Product Detail' };
-            res.render('Ecommerce/ecommerce-product-detail');
-      });
-
-      app.get('/ecommerce-orders', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Orders' };
-            res.render('Ecommerce/ecommerce-orders');
-      });
-
-      app.get('/ecommerce-customers', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Customers' };
-            res.render('Ecommerce/ecommerce-customers');
-      });
-
-      app.get('/ecommerce-cart', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Cart' };
-            res.render('Ecommerce/ecommerce-cart');
-      });
-
-      app.get('/ecommerce-checkout', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Checkout' };
-            res.render('Ecommerce/ecommerce-checkout');
-      });
-
-      app.get('/ecommerce-shops', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Shops' };
-            res.render('Ecommerce/ecommerce-shops');
-      });
-
-      app.get('/ecommerce-add-product', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Add Product' };
-            res.render('Ecommerce/ecommerce-add-product');
-      });
-
-
-      //kanban board
-      app.get('/apps-kanban-board', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Kanban Board' };
-            res.render('KanbanBoard/apps-kanban-board');
-      });
-
-      // Utility
-      app.get('/pages-starter', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Starter page' };
-            res.render('Pages/pages-starter');
-      });
-      app.get('/pages-maintenance', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Maintenance' };
-            res.render('Pages/pages-maintenance');
-      });
-      app.get('/pages-comingsoon', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Coming Soon' };
-            res.render('Pages/pages-comingsoon');
-      });
-      app.get('/pages-timeline', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Timeline' };
-            res.render('Pages/pages-timeline');
-      });
-      app.get('/pages-faqs', isUserAllowed, function (req, res) {
-            res.locals = { title: 'FAQs' };
-            res.render('Pages/pages-faqs');
-      });
-      app.get('/pages-pricing', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Pricing' };
-            res.render('Pages/pages-pricing');
-      });
-      app.get('/pages-404', isUserAllowed, function (req, res) {
-            res.locals = { title: '404 Error' };
-            res.render('Pages/pages-404');
-      });
-      app.get('/pages-500', isUserAllowed, function (req, res) {
-            res.locals = { title: '500 Error' };
-            res.render('Pages/pages-500');
-      });
-
-
-
-
-
-      // Charts
-      app.get('/charts-apex', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Apex charts' };
-            res.render('Charts/charts-apex');
-      });
-      app.get('/charts-chartjs', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Chartjs' };
-            res.render('Charts/charts-chartjs');
-      });
-      app.get('/charts-flot', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Flot Chart' };
-            res.render('Charts/charts-flot');
-      });
-      app.get('/charts-knob', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Jquery Knob' };
-            res.render('Charts/charts-knob');
-      });
-      app.get('/charts-sparkline', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Sparkline Chart' };
-            res.render('Charts/charts-sparkline');
-      });
-
-
       // Icons
       app.get('/icons-remix', isUserAllowed, function (req, res) {
             res.locals = { title: 'Remix Icons' };

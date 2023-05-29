@@ -1,9 +1,4 @@
-/*
-Template Name: Nazox -  Admin & Dashboard Template
-Author: Themesdesign
-Contact: themesdesign.in@gmail.com
-File: Datatables Js File
-*/
+
 
 $(document).ready(function() {
 
@@ -125,11 +120,7 @@ $(document).ready(function() {
           field_is_required:true,
           // field_validation:` data-parsley-min="6" `,
           field_value:"",
-          field_options:[
-            {value:'DO',text:'Republica Dominicana'},
-            {value:'PR',text:'Puerto Rico'},
-            {value:'CO',text:'Rep. de Colombia'},
-          ]
+          field_options:[]
       },
     //   {
     //     field_id:"address",
@@ -328,6 +319,9 @@ $(document).ready(function() {
   // $("#companies-modules").html(builFormInput(formFieldsModules));
   builFormInput(formCompaniesInput.formFieldsCompanies).then(function(uiFieldCompanies){
     $("#companies-general").html(uiFieldCompanies);
+    FormAppHelper.fillCompaniesList("#form-add-company #id_company","").then(function(uiUNits){
+
+    });
     // builFormInput(formCompaniesInput.formFieldsContact).then(function(uiFieldContact){
     //   $("#companies-contact").html(uiFieldContact);
     //   builFormInput(formCompaniesInput.formFieldsModules).then(function(uiFieldModules){

@@ -127,7 +127,7 @@ var builFormInput=function(formFields,formFieldsData=null){
 }
 var buildFormValidation=function(){
     var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
+    
     var validation = Array.prototype.filter.call(forms, function(form) {
     form.addEventListener('submit', function(event) {
         if (form.checkValidity() === false) {
@@ -398,77 +398,40 @@ let getFormData=function(formId){
     }
     return data;
 }
-// let URLAPI='http://propagas.aglrd.com:6790';
-
-// var URLAPIPP='<%= process.env.VUE_APP_API_URL %>';
-
-// console.log('APIUrlService',URLAPIPP);
-
 var app_fields_data={
     companies:[],
     clients:[],
 };
 
 var getAppFieldsDT=function(){
-	// return false;
-	var settings = {
-		"url": '/app-fields',
-		"method": "GET",
-		"timeout": 0,
-		"headers": { "Content-Type": "application/json" },
-	  };
-	
-	  $.ajax(settings).done(function (response) {
-		if (response) {
-			app_fields_data.companies=response.data.companies;
-			app_fields_data.clients=response.data.clients;
-		}
-	  });
+    return new Promise(function(resolve, reject){
+        var settings = {
+            "url": '/app-fields',
+            "method": "GET",
+            "timeout": 0,
+            "headers": { "Content-Type": "application/json" },
+        };
+        
+        $.ajax(settings).done(function (response) {
+            if (response) {
+                app_fields_data.companies=response.data.companies;
+                app_fields_data.clients=response.data.clients;
+                resolve(); 
+                console.log(response);
+            }
+        });
+    });
 }
 
 var appRenderSelect2=function(form_select){
     $(form_select).select2();
 }
-getAppFieldsDT();
+// getAppFieldsDT();
 
 class FormAppHelper {
 
     constructor(a,b,c) {}
   
-    // static fillGroupOptions=function(company_id,form_select,optionSelected){
-    //     return new Promise(function(resolve, reject){
-    //         var settings = {
-    //             "url": '/app-group',
-    //             "method": "POST",
-    //             "timeout": 0,
-    //             "headers": { "Content-Type": "application/json" },
-    //             "data": JSON.stringify({ "company_id": company_id }),
-    //         };
-    
-    //         $.ajax(settings).done(function (response) {
-    //             if (response.data) {
-    //                 $(form_select).empty();
-    //                 $(form_select).append($('<option>', {value:'', text:'---'}));
-    //                 response.data.forEach((thisSection,index,array) => {
-    //                 $(form_select).append($('<option>', {value:thisSection.value, text:thisSection.text}));
-    //                 if (index === array.length - 1) { 
-    //                     $(form_select).select2();
-    //                     if( optionSelected != 0){ 
-    //                     if( optionSelected != null){
-    //                         let strOptionsGroups = optionSelected.split(',');
-    //                         $(form_select).select2().val(strOptionsGroups).trigger('change');
-    //                     }
-    //                     }
-    //                     resolve(); 
-    //                 }
-    //                 });
-    //             }else{
-    //                 $(form_select).select2();
-    //                 resolve(); 
-    //             }
-    //         });
-    //     });
-    // }
     static getStatus = function(setStatus){
         if(setStatus == 0){
             return 'Inactivo';
@@ -511,40 +474,6 @@ class FormAppHelper {
         });
     }
     
-    // static fillCompaniesList=function(record_id,form_select,optionSelected){
-    //     return new Promise(function(resolve, reject){
-    //         var settings = {
-    //             "url": '/vehicle/cia/list',
-    //             "method": "POST",
-    //             "timeout": 0,
-    //             "headers": { "Content-Type": "application/json" },
-    //             "data": JSON.stringify({ "record_id": record_id }),
-    //         };
-    
-    //         $.ajax(settings).done(function (response) {
-    //             if (response.data) {
-    //                 $(form_select).empty();
-    //                 $(form_select).append($('<option>', {value:'', text:'---'}));
-    //                 response.data.forEach((thisSection,index,array) => {
-    //                 $(form_select).append($('<option>', {value:thisSection.value, text:thisSection.text}));
-    //                 if (index === array.length - 1) { 
-    //                     $(form_select).select2();
-    //                     if( optionSelected != 0){ 
-    //                     if( optionSelected != null){
-    //                         let strOptionsGroups = optionSelected.split(',');
-    //                         $(form_select).select2().val(strOptionsGroups).trigger('change');
-    //                     }
-    //                     }
-    //                     resolve(); 
-    //                 }
-    //                 });
-    //             }else{
-    //                 $(form_select).select2();
-    //                 resolve(); 
-    //             }
-    //         });
-    //     });
-    // }
 
     static fillCompaniesList=function(form_select,optionSelected){
         return new Promise(function(resolve, reject){
@@ -563,14 +492,30 @@ class FormAppHelper {
                         resolve(); 
                     }
                 });
-                
-            
+        });
+    }
+    static fillClientsList=function(form_select,optionSelected){
+        return new Promise(function(resolve, reject){
+                $(form_select).empty();
+                $(form_select).append($('<option>', {value:'', text:'---'}));
+                app_fields_data.clients.forEach((thisSection,index,array) => {
+                    $(form_select).append($('<option>', {value:thisSection.id_reg, text:thisSection.client_name}));
+                    if (index === array.length - 1) { 
+                        $(form_select).select2();
+                        if( optionSelected != 0){ 
+                        if( optionSelected != null){
+                            let strOptionsGroups = optionSelected.split(',');
+                            $(form_select).select2().val(strOptionsGroups).trigger('change');
+                        }
+                        }
+                        resolve(); 
+                    }
+                });
         });
     }
 
     static selectCompany=function(optionSelected){
         let ciaReturn = '';
-        
         return new Promise(function(resolve, reject){
             app_fields_data.companies.forEach((thisSection,index,array) => {
                 if( thisSection.id_reg == optionSelected){ 
@@ -579,6 +524,20 @@ class FormAppHelper {
                 if (index === array.length - 1) { 
                     resolve(ciaReturn);
                     
+                }
+            });
+        });
+    }
+
+    static selectClient=function(optionSelected){
+        let ciaReturn = ''; 
+        return new Promise(function(resolve, reject){
+            app_fields_data.clients.forEach((thisSection,index,array) => {
+                if( thisSection.id_reg == optionSelected){ 
+                    ciaReturn = thisSection.client_name; 
+                }
+                if (index === array.length - 1) { 
+                    resolve(ciaReturn);
                 }
             });
         });

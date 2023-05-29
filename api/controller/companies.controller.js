@@ -59,49 +59,21 @@ exports.updateCompany = async (req, res) => {
 };
 
 exports.dtDTablesByCompany = async function(req, res) {
-    
 	const optPage = req.body.start;
 	const optLimit = req.body.length;
 	
-	// const filter = req.body.opt_filter;
-	// const filterFields = req.body.opt_filter_fields;
-	// if (!company_id) {
-	// 	return res.status(400).send('The required field ficha_id is missing')
-	// }
-	
-
 	let sortBy = req.body.opt_sortby;
-	let sortOrder = '';//req.body.order[0][dir];
+	let sortOrder = '';
 	
-	// if( sortOrder ==true){ sortOrder=1;}
-	// if( sortOrder ==false){ sortOrder=-1;}
-	// if( sortBy == ''){ sortBy='_id';}
-
 	sortBy='_id'; sortOrder=-1;
 
 	let OrderBy=JSON.parse(`{"${sortBy}": ${sortOrder}}`);
 	let objetFilter ={}; //{company:company_id};
-	// let objetFilter ={company:company_id,status:{$ne:2}};
-	
-	
-	// if(filterText !== null){
-	// 	if(filterText.length > 0){
-	// 		if(isNumber(filterText)){
-	// 			objetFilter.no_pedido={'$regex': filterText.toUpperCase()};
-	// 		}else{
-	// 			objetFilter.address_name={'$regex': filterText.toUpperCase()};
-	// 		}
-	// 		// if( optFilterField !=''){
-	// 		// 	objetFilter[optFilterField]={'$regex': filterText.toUpperCase()};
-	// 		// }
-	// 	}
-	// }
 	
 	const options = {
 		page: optPage,
 		limit: optLimit,
 		sort:OrderBy
-		// customLabels: myCustomLabels,
 	};
 	
 	Companies.paginate(objetFilter, options, function (err, result) {
@@ -122,13 +94,12 @@ exports.dtDTablesByCompany = async function(req, res) {
 };
 
 exports.getCompaniesClients = async (req, res) => {
-	// const query = {id_reg:req.params.id};
 	
-    //* Find Company
+    //* Find Records
     const company = await Companies.find({});
     const client = await Clients.find({});
 	
 	const resData = {companies:company,clients:client};
-    //* return Company
+    //* return Records
     res.status(200).json({ status:'ok',data:resData});
 };

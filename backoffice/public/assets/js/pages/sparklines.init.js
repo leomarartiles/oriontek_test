@@ -12,7 +12,7 @@ $(document).ready(function() {
         type: 'pie',
         height: '200',
         resize: true,
-        sliceColors: ['#1cbb8c', '#e4615a', '#e9ecef']
+        sliceColors: ['#1cbb8c', '#00ADEE', '#e9ecef']
       });
   
       $("#sparkline2").sparkline([5,6,2,8,9,4,7,10,11,12,10,4,7,10], {
@@ -29,7 +29,7 @@ $(document).ready(function() {
         barWidth: '10',
         resize: true,
         barSpacing: '7',
-        barColor: '#e4615a'
+        barColor: '#00ADEE'
       });
       $('#sparkline3').sparkline([5, 6, 2, 9, 4, 7, 10, 12,4,7,10], {
         type: 'line',
@@ -46,9 +46,9 @@ $(document).ready(function() {
         type: 'line',
         width: '100%',
         height: '200',
-        lineColor: '#e4615a',
+        lineColor: '#00ADEE',
         fillColor: 'transparent',
-        spotColor: '#e4615a',
+        spotColor: '#00ADEE',
         lineWidth: 2,
         minSpotColor: undefined,
         maxSpotColor: undefined,
@@ -61,7 +61,7 @@ $(document).ready(function() {
         height: '200',
         chartRangeMax: 50,
         resize: true,
-        lineColor: '#e4615a',
+        lineColor: '#00ADEE',
         fillColor: 'rgba(86, 100, 210, 0.3)',
         highlightLineColor: 'rgba(0,0,0,.1)',
         highlightSpotColor: 'rgba(0,0,0,.2)',
@@ -109,7 +109,7 @@ $(document).ready(function() {
         height: '80',
         width: '100%',
         type: 'tristate',
-        posBarColor: '#e4615a',
+        posBarColor: '#00ADEE',
         negBarColor: '#1cbb8c',
         zeroBarColor: '#ff3d60',
         barWidth: 8,

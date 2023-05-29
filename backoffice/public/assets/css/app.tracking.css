@@ -10,7 +10,7 @@
     color: #fff;
     font-size: 16px;
     line-height: 40px;
-    background: #E4615A;
+    background: #00ADEE;
     border-radius: 4px;
     padding: 10px 20px; }
   
@@ -24,12 +24,12 @@
       bottom: -15px;
       border-right: 16px solid transparent;
       border-left: 16px solid transparent;
-      border-top: 16px solid #E4615A; }
+      border-top: 16px solid #00ADEE; }
     .gmaps-overlay_arrow.below {
       top: -15px;
       border-right: 16px solid transparent;
       border-left: 16px solid transparent;
-      border-bottom: 16px solid #E4615A; }
+      border-bottom: 16px solid #00ADEE; }
 
 
       /* $marker-height: 23px; */
