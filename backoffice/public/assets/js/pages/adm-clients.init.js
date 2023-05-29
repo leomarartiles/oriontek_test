@@ -50,7 +50,11 @@ $(document).ready(function() {
           var page = info.page;
           var length = info.length;
           var index = (page * length + (iDisplayIndex + 1));
-          // $('td:eq(0)', row).html(index);
+        
+        FormAppHelper.selectCompany(data.id_company).then(function(uidGroups){
+            $('td:eq(3)', row).html(uidGroups);
+        });
+        $('td:eq(4)', row).html(FormAppHelper.getStatus(data.status));
           $('td:eq(6)', row).html(` <a href="javascript:void(0);" class="me-3 text-primary btn-open-record" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" data-id="${data.id_reg}"><i class="mdi mdi-pencil font-size-18"></i></a>
         <a href="javascript:void(0);" class="text-danger" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>`);
         }
@@ -409,10 +413,11 @@ $(document).ready(function() {
     //     $("#edit-companies-contact").html(uiFieldContact);
     //     builFormInput(formCompaniesInput.formFieldsModules,thisFormData).then(function(uiFieldModules){
     //       $("#edit-companies-modules").html(uiFieldModules);
+    FormAppHelper.fillCompaniesList("#form-edit-company #id_company",thisFormData.id_company).then(function(uidGroups){
           formCompaniesEditValidation= $('#form-edit-company').parsley();
           $('#modalEditCompany').modal('show');
-    //     });
-    //   });
+    
+      });
     });
   }
   // bsCustomFileInput.init()

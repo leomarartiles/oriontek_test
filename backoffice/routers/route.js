@@ -40,99 +40,13 @@ module.exports = function (app) {
             res.locals = { title: 'Clientes' };
             res.render('Clients/adm-clients');
       });
-      app.get('/groups', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Grupos' };
-            res.render('Companies/adm-groups');
-      });
+      
       app.get('/users', isUserAllowed, function (req, res) {
             res.locals = { title: 'Usuarios' };
             res.render('Users/adm-users');
       });
       
-      app.get('/fields', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Campos' };
-            res.render('Fields/adm-fields');
-      });
-      app.get('/vehicles', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Vehiculos' };
-            res.render('Vehicles/adm-vehicles');
-      });
-      app.get('/alerts', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Alertas' };
-            res.render('Alerts/adm-alerts');
-      });
-      app.get('/layouts-icon-sidebar', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Icon Sidebar' };
-            res.render('Dashboard/index', { layout: 'layoutsIconSidebar' });
-      });
-      app.get('/layouts-boxed', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Boxed Width' };
-            res.render('Dashboard/index', { layout: 'layoutsBoxed' });
-      });
-      app.get('/layouts-preloader', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Preloader' };
-            res.render('Dashboard/index', { layout: 'layoutsPreloader' });
-      });
-      app.get('/layouts-colored-sidebar', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Colored Sidebar' };
-            res.render('Dashboard/index', { layout: 'layoutsColoredSidebar' });
-      });
-
-
-      app.get('/layouts-horizontal', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Horizontal' };
-            res.render('Dashboard/index', { layout: 'layoutsHorizontal' });
-      });
-      app.get('/layouts-hori-topbar-light', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Topbar Light' };
-            res.render('Dashboard/index', { layout: 'layoutsHTopbarLight' });
-      });
-      app.get('/layouts-hori-boxed-width', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Boxed Width' };
-            res.render('Dashboard/index', { layout: 'layoutsHBoxed' });
-      });
-      app.get('/layouts-hori-preloader', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Preloader' };
-            res.render('Dashboard/index', { layout: 'layoutsHPreloader' });
-      });
-      app.get('/layouts-hori-colored-header', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Colored Header' };
-            res.render('Dashboard/index', { layout: 'layoutsHColoredHeader' });
-      });
-
-      // Dark and RTL Mode Vertical
-      app.get("/vertical-dark", isUserAllowed, function (req, res) {
-            res.locals = { title: 'Vertical Dark' };
-            res.render("Dashboard/index", { layout: "vertical-dark-layout" });
-      });
-
-      app.get("/vertical-rtl", isUserAllowed, function (req, res) {
-            res.locals = { title: 'Vertical Rtl' };
-            res.render("Dashboard/index", { layout: "vertical-rtl-layout" });
-      });
-
-      // Dark and RTL Mode Horizontal
-      app.get("/horizontal-dark", isUserAllowed, function (req, res) {
-            res.locals = { title: 'Horizontal Dark' };
-            res.render("Dashboard/index", { layout: "horizontal-dark-layout" });
-      });
-
-      app.get("/horizontal-rtl", isUserAllowed, function (req, res) {
-            res.locals = { title: 'Horizontal Rtl' };
-            res.render("Dashboard/index", { layout: "horizontal-rtl-layout" });
-      });
-
-      // Calendar
-      app.get('/calendar', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Calendar' };
-            res.render('Calendar/calendar');
-      });
-
-      // Chat
-      app.get('/apps-chat', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Chat' };
-            res.render('Chat/apps-chat');
-      });
+    
 
       //Ecommerce
       app.get('/ecommerce-products', isUserAllowed, function (req, res) {
@@ -175,15 +89,6 @@ module.exports = function (app) {
             res.render('Ecommerce/ecommerce-add-product');
       });
 
-      // Email
-      app.get('/email-inbox', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Inbox' };
-            res.render('Email/email-inbox');
-      });
-      app.get('/email-read', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Email Read' };
-            res.render('Email/email-read');
-      });
 
       //kanban board
       app.get('/apps-kanban-board', isUserAllowed, function (req, res) {
@@ -226,139 +131,7 @@ module.exports = function (app) {
       });
 
 
-      // // UI Elements
-      app.get('/ui-alerts', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Alerts' };
-            res.render('Ui/ui-alerts');
-      });
-      app.get('/ui-buttons', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Buttons' };
-            res.render('Ui/ui-buttons');
-      });
-      app.get('/ui-cards', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Cards' };
-            res.render('Ui/ui-cards');
-      });
-      app.get('/ui-carousel', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Carousel' };
-            res.render('Ui/ui-carousel');
-      });
-      app.get('/ui-dropdowns', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Dropdowns' };
-            res.render('Ui/ui-dropdowns');
-      });
-      app.get('/ui-grid', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Grid' };
-            res.render('Ui/ui-grid');
-      });
-      app.get('/ui-images', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Images' };
-            res.render('Ui/ui-images');
-      });
-      app.get('/ui-lightbox', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Lightbox' };
-            res.render('Ui/ui-lightbox');
-      });
-      app.get('/ui-modals', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Modals' };
-            res.render('Ui/ui-modals');
-      });
-      app.get('/ui-rangeslider', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Range Slider' };
-            res.render('Ui/ui-rangeslider');
-      });
-      app.get('/ui-roundslider', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Round slider' };
-            res.render('Ui/ui-roundslider');
-      });
-      app.get('/ui-session-timeout', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Session Timeout' };
-            res.render('Ui/ui-session-timeout');
-      });
-      app.get('/ui-progressbars', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Progress Bars' };
-            res.render('Ui/ui-progressbars');
-      });
-      app.get('/ui-sweet-alert', isUserAllowed, function (req, res) {
-            res.locals = { title: 'SweetAlert 2' };
-            res.render('Ui/ui-sweet-alert');
-      });
-      app.get('/ui-tabs-accordions', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Tabs & Accordions' };
-            res.render('Ui/ui-tabs-accordions');
-      });
-      app.get('/ui-typography', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Typography' };
-            res.render('Ui/ui-typography');
-      });
-      app.get('/ui-video', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Video' };
-            res.render('Ui/ui-video');
-      });
-      app.get('/ui-general', isUserAllowed, function (req, res) {
-            res.locals = { title: 'General' };
-            res.render('Ui/ui-general');
-      });
-      app.get('/ui-rating', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Rating' };
-            res.render('Ui/ui-rating');
-      });
-      app.get('/ui-notifications', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Notifications' };
-            res.render('Ui/ui-notifications');
-      });
 
-      // Forms
-      app.get('/form-elements', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Elements' };
-            res.render('Form/form-elements');
-      });
-      app.get('/form-validation', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Validation' };
-            res.render('Form/form-validation');
-      });
-      app.get('/form-advanced', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Advanced' };
-            res.render('Form/form-advanced');
-      });
-      app.get('/form-editors', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Editor' };
-            res.render('Form/form-editors');
-      });
-      app.get('/form-uploads', isUserAllowed, function (req, res) {
-            res.locals = { title: 'File Upload' };
-            res.render('Form/form-uploads');
-      });
-      app.get('/form-xeditable', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Xeditable' };
-            res.render('Form/form-xeditable');
-      });
-      app.get('/form-wizard', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Wizard' };
-            res.render('Form/form-wizard');
-      });
-      app.get('/form-mask', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Form Mask' };
-            res.render('Form/form-mask');
-      });
-
-      // Tables
-      app.get('/tables-basic', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Basic Tables' };
-            res.render('Tables/tables-basic');
-      });
-      app.get('/tables-datatable', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Data Tables' };
-            res.render('Tables/tables-datatable');
-      });
-      app.get('/tables-responsive', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Responsive Table' };
-            res.render('Tables/tables-responsive');
-      });
-      app.get('/tables-editable', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Editable Table' };
-            res.render('Tables/tables-editable');
-      });
 
 
       // Charts

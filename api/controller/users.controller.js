@@ -64,29 +64,20 @@ exports.userLogin = async (req, res) => {
 	let resStat = {status:'error',data:null};
 	await Users.findOne(query)
 	.then((uiResponse) => {
-
-        // console.log(uiResponse.user_password);
-        // console.log(req.body.user_password);
         bcrypt.compare(req.body.user_password, uiResponse.user_password, function(err, result) {
-            // result == true
-            // return result;
-            // console.log(result);
             resStat = {status:'ok',token: service.createToken(req.body.user_email),message:'Success',data:uiResponse};
             if( result == false){
                 resStat = {status:'error',message:'Su contraseña es incorrecta!',data:null};
             }else{
                 
-                // if( rows[0].user_last_login == 'NEVER'){
-                // 	resStat = {status:'first_login',message:'Inicio de sesion por Primera Vez!',data:null};
-                // }
                 if( uiResponse.status == 0){
                     resStat = {status:'error',message:'Su cuenta ha sido desactivada!',data:null};
                 }
             }
-            console.log(resStat);
+            
             res.status(200).json(resStat);
         });
-		// res.status(200).json({ status:'ok',data:UserLogin,message:'success'});
+		
     })
     .catch(async (error) => {
         res.status(200).json({ status:'error',data:[],message:error});

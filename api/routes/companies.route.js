@@ -8,6 +8,7 @@ router.get('/info/:id', controller.getCompany);
 router.post('/create', controller.createCompany);
 router.post('/update/:id', controller.updateCompany);
 
+router.get('/listing', controller.getCompaniesClients);
 router.post('/list/dt', controller.dtDTablesByCompany);
 
 

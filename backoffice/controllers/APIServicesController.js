@@ -35,17 +35,17 @@ var apiToken,apiTokenSecret;
 //     });
 //   });
 // }
-// let getAppFieldData = function (){
-//   return new Promise(function(resolve, reject){
-//     axios.get(process.env.APP_URL_API+'/attr',apiToken)
-//     .then(function (response) {
-//       resolve(response);
-//     })
-//     .catch(function (error) {
-//       console.log('error', error);
-//     });
-//   });
-// }
+let getAppFieldData = function (){
+  return new Promise(function(resolve, reject){
+    axios.get(process.env.APP_URL_API+'/companies/listing',apiToken)
+    .then(function (response) {
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.log('error', error);
+    });
+  });
+}
 // let getAppGroupsdData = function (companyId){
 //   return new Promise(function(resolve, reject){
 //     axios.post(process.env.APP_URL_API+'/group/get/',{company_id:companyId},apiToken)
@@ -397,16 +397,16 @@ module.exports = function (app) {
 		res.locals = { title: 'Expiracion de Enlace' };
 		res.render('Pages/pages-expired');
 	});
-  // app.get("/app-fields",urlencodeParser, function (req, res) {
-  //   getAppFieldData().then(function(response){
-  //       if (response.data.status =='ok') {
-  //         res.send({status:'ok',data:response.data.data});
-  //       } else {
-  //         req.flash("error", "Error connection with server!");
-  //         res.send({status:'error',message:response.data.status});
-  //       }
-  //   });
-  // });
+  app.get("/app-fields",urlencodeParser, function (req, res) {
+    getAppFieldData().then(function(response){
+        if (response.data.status =='ok') {
+          res.send({status:'ok',data:response.data.data});
+        } else {
+          req.flash("error", "Error connection with server!");
+          res.send({status:'error',message:response.data.status});
+        }
+    });
+  });
 
   app.post("/user",urlencodeParser, function (req, res) {
     UsersServices.getRecord(req.body.record_id).then(function(response){

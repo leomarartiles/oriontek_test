@@ -1,6 +1,7 @@
 'use strict';
 
 const Companies = require('../schema/Companies');
+const Clients = require('../schema/clients');
 const AppUtils = require('../helpers/app.utils');
 
 const moment=require("moment");
@@ -118,4 +119,16 @@ exports.dtDTablesByCompany = async function(req, res) {
 			return res.json(response);
 		}
 	});
+};
+
+exports.getCompaniesClients = async (req, res) => {
+	// const query = {id_reg:req.params.id};
+	
+    //* Find Company
+    const company = await Companies.find({});
+    const client = await Clients.find({});
+	
+	const resData = {companies:company,clients:client};
+    //* return Company
+    res.status(200).json({ status:'ok',data:resData});
 };
