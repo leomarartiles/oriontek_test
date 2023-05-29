@@ -1,4 +1,14 @@
 {
+  "name": "oriontek-api",
+  "version": "1.0.0",
+  "description": "OrionTek Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "node ./app.api.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
@@ -8,6 +18,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-group-routes": "^1.1.0",
+    "fs": "0.0.1-security",
     "http": "^0.0.1-security",
     "jwt-simple": "^0.5.6",
     "moment": "^2.29.4",

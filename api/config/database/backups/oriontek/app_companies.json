@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "64715af90cce113f35726ac8" }, "id_reg" : "UJAD9", "cia_name" : "CIA 1001", "cia_description" : "company for test55", "date_created" : { "$date" : "2023-05-29T02:14:52.045+0000" }, "status" : 1, "country" : "DO" }
+{ "_id" : { "$oid" : "64740c92601dca57cd124098" }, "id_reg" : "KF0OPQGP", "cia_name" : "CIA 0092", "status" : 0, "cia_description" : "company for test2", "country" : "CO", "date_created" : { "$date" : "2023-05-29T02:23:33.602+0000" } }

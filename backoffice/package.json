@@ -1,7 +1,7 @@
 {
-  "name": "backoffice-wtracking",
-  "version": "5.0.0",
-  "description": "BackOffice wTracking",
+  "name": "oriontek-backoffice",
+  "version": "1.0.0",
+  "description": "OrionTek BackOffice",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

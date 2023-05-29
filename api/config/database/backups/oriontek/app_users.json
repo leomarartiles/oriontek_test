@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "6473e4ad3654313bf53950d1" }, "id_reg" : "UZVMNHMP", "status" : 1, "user_email" : "adm@mail.com", "user_login" : "adminsa", "user_password" : "$2a$10$Fbc3k3GEt.3FKmjBknfbkOKZCAC6UraSQsvtX6sNnC7RBWjOlXE7a", "user_firstname" : "Leomar", "user_lastname" : "Artiles", "date_created" : { "$date" : "2023-05-28T23:33:01.834+0000" } }
