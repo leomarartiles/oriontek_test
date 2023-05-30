@@ -9,6 +9,7 @@
 # Configuracion de API 
     - copiar un archivo .env dentro del folder ./api, usar los parametros del archivo de ejemplo .env.example
     - escribir "npm install" dentro de la terminal
+    - escribir "npm run setUsers"
 
 # Configuracion del BackOffice
     - copiar un archivo .env dentro del folder ./api, usar los parametros del archivo de ejemplo .env.example
@@ -19,4 +20,8 @@
 
 # Ejecutar BackOffice
     - entrar dentro del folder ./backoffice y ejectuar npm run backoffice
+
+# Usar BackOffice
+    - en el navegador ir al enlace  http://localhost:5155
+
 

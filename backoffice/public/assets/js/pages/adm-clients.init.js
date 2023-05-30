@@ -2,8 +2,9 @@
 
 $(document).ready(function() {
 
-    // State Saving Datatable
-   var dataTable= $('#dtClients').DataTable({
+  var dataTable;
+  getAppFieldsDT().then(function(uiFieldCompanies){
+    dataTable= $('#dtClients').DataTable({
         'processing': true,
         'serverSide': true,
         'serverMethod': 'post',
@@ -67,7 +68,20 @@ $(document).ready(function() {
         // }
     });
 
+    builFormInput(formCompaniesInput.formFieldsCompanies).then(function(uiFieldCompanies){
+      $("#companies-general").html(uiFieldCompanies);
+      FormAppHelper.fillCompaniesList("#form-add-company #id_company","").then(function(uiUNits){
   
+      });
+      // builFormInput(formCompaniesInput.formFieldsContact).then(function(uiFieldContact){
+      //   $("#companies-contact").html(uiFieldContact);
+      //   builFormInput(formCompaniesInput.formFieldsModules).then(function(uiFieldModules){
+      //     $("#companies-modules").html(uiFieldModules);
+      //     formCompaniesAddValidation= $('#form-add-company').parsley();
+      //   });
+      // });
+    });
+  });
   var groupFieldCompanies = function(){
     this.formFieldsCompanies=[
         {
@@ -317,19 +331,19 @@ $(document).ready(function() {
   // $("#companies-general").html(builFormInput(formFieldsCompanies));
   // $("#companies-contact").html(builFormInput(formFieldsContact));
   // $("#companies-modules").html(builFormInput(formFieldsModules));
-  builFormInput(formCompaniesInput.formFieldsCompanies).then(function(uiFieldCompanies){
-    $("#companies-general").html(uiFieldCompanies);
-    FormAppHelper.fillCompaniesList("#form-add-company #id_company","").then(function(uiUNits){
+  // builFormInput(formCompaniesInput.formFieldsCompanies).then(function(uiFieldCompanies){
+  //   $("#companies-general").html(uiFieldCompanies);
+  //   FormAppHelper.fillCompaniesList("#form-add-company #id_company","").then(function(uiUNits){
 
-    });
-    // builFormInput(formCompaniesInput.formFieldsContact).then(function(uiFieldContact){
-    //   $("#companies-contact").html(uiFieldContact);
-    //   builFormInput(formCompaniesInput.formFieldsModules).then(function(uiFieldModules){
-    //     $("#companies-modules").html(uiFieldModules);
-    //     formCompaniesAddValidation= $('#form-add-company').parsley();
-    //   });
-    // });
-  });
+  //   });
+  //   // builFormInput(formCompaniesInput.formFieldsContact).then(function(uiFieldContact){
+  //   //   $("#companies-contact").html(uiFieldContact);
+  //   //   builFormInput(formCompaniesInput.formFieldsModules).then(function(uiFieldModules){
+  //   //     $("#companies-modules").html(uiFieldModules);
+  //   //     formCompaniesAddValidation= $('#form-add-company').parsley();
+  //   //   });
+  //   // });
+  // });
   var formSubmitPOST=function(formData){
     var settings = {
         "url": '/customers/create',

@@ -417,7 +417,7 @@ var getAppFieldsDT=function(){
                 app_fields_data.companies=response.data.companies;
                 app_fields_data.clients=response.data.clients;
                 resolve(); 
-                console.log(response);
+                console.log('get fiels ',response);
             }
         });
     });

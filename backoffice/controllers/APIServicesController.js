@@ -28,6 +28,7 @@ let getAppFieldData = function (){
   return new Promise(function(resolve, reject){
     axios.get(process.env.APP_URL_API+'/companies/listing',apiToken)
     .then(function (response) {
+      console.log('Debug -->',response);
       resolve(response);
     })
     .catch(function (error) {

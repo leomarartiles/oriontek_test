@@ -98,7 +98,7 @@ exports.getCompaniesClients = async (req, res) => {
     //* Find Records
     const company = await Companies.find({});
     const client = await Clients.find({});
-	
+	console.log(client,company);
 	const resData = {companies:company,clients:client};
     //* return Records
     res.status(200).json({ status:'ok',data:resData});
