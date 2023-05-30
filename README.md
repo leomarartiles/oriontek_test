@@ -23,5 +23,5 @@
 
 # Usar BackOffice
     - en el navegador ir al enlace  http://localhost:5155
-
+    - las credenciales para el usuario: adminsa y la contraseña: 9625
 
